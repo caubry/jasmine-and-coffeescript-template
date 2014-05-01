@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CreateJS export from gameAssets</title>
+
+<script src="http://code.createjs.com/easeljs-0.6.0.min.js"></script>
+<script src="http://code.createjs.com/tweenjs-0.4.0.min.js"></script>
+<script src="http://code.createjs.com/movieclip-0.6.0.min.js"></script>
+<script src="http://code.createjs.com/preloadjs-0.3.0.min.js"></script>
+<script src="src/gameAssets.js"></script>
+
+<script>
+var canvas, stage, exportRoot;
+
+function init() {
+	createjs.MotionGuidePlugin.install();
+
+	canvas = document.getElementById("canvas");
+	images = images||{};
+
+	var manifest = [
+		{src:"assets/images/background.jpg", id:"background"}
+		// {src:"images/Bitmap1.png", id:"Bitmap1"}
+		// {src:"images/Bitmap2.png", id:"Bitmap2"},
+		// {src:"images/Bitmap3.png", id:"Bitmap3"},
+		// {src:"images/Bitmap4.png", id:"Bitmap4"},
+		// {src:"images/Bitmap7.png", id:"Bitmap7"},
+		// {src:"images/Bitmap8.png", id:"Bitmap8"},
+		// {src:"images/gameBoards.png", id:"gameBoards"},
+		// {src:"images/goldCoin.png", id:"goldCoin"},
+		// {src:"images/okButton.png", id:"okButton"},
+		// {src:"images/okButtonTap.png", id:"okButtonTap"},
+		// {src:"images/sizeHelper.png", id:"sizeHelper"}
+	];
+
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadManifest(manifest);
+}
+
+function handleFileLoad(evt) {
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+}
+
+function handleComplete() {
+	exportRoot = new lib.GTHLoaderGTHLoaderMain();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+
+	createjs.Ticker.setFPS(30);
+	createjs.Ticker.addEventListener("tick", stage);
+}
+</script>
+</head>
+
+<body onload="init();" style="background-color:#D4D4D4">
+	<canvas id="canvas" width="720" height="1035" style="background-color:#737373"></canvas>
+</body>
+</html>
