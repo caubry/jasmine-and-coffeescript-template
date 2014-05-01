@@ -14,4 +14,4 @@ cake build:all
 ```
 
 and you should get your CoffeeScript files translated into JavaScript and even minified using the node module uglify. You can of course swap this module for the closure compiler or the yui compressor.    
-You can now run the 'SpecRunner.html' into a web browser - every specs should passed the test :)
+You can now run the 'SpecRunner.html' into a web browser - every test should pass :)
