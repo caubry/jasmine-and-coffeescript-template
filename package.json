@@ -1,0 +1,13 @@
+{
+  "name": "app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/coffee-script/bin/cake"
+  },
+  "dependencies": {
+    "coffee-script": "latest",
+    "growl": "latest",
+    "uglify-js": "git+ssh://git@github.com:mishoo/UglifyJS.git"
+  }
+}
