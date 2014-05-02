@@ -8,13 +8,17 @@ Run package.json to install node modules dependancies:
 npm install
 ```
 
-Add node modules folder to your $PATH. If you are unsure where the folder is located simply run which cake.    
-On Windows machine the node modules are located at C:\Users\[name]\AppData\Roaming\npm    
+Add node modules folder to your $PATH. If you are unsure where the folder is located simply run:
+```
+which cake
+```
 
-You can now try to run: 
+On Windows machines, node modules are located at C:\Users\[name]\AppData\Roaming\npm    
+
+You can now run: 
 ```
 cake build:all
 ```
 
-and you should get your CoffeeScript files translated into JavaScript and even minified using the node module uglify. You can of course swap this module for the closure compiler or the yui compressor.    
-You can now run the 'SpecRunner.html' into a web browser - every test should pass :)
+You should get your CoffeeScript files translated into JavaScript and even minified using the node module uglify. You can of course swap this module for the closure compiler or the yui compressor.     
+Run the 'SpecRunner.html' into a web browser - every test should pass :)
