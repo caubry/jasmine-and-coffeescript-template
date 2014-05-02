@@ -1,4 +1,4 @@
-Jasmine & Coffeescript
+Jasmine & CoffeeScript
 =================================
 
 [Jasmine](http://jasmine.github.io/2.0/introduction.html) is a behavior-driven development framework for testing JavaScript code. While, [CoffeeScript](http://coffeescript.org/) is a tiny language that compiles JavaScript.    
