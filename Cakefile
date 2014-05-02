@@ -104,7 +104,7 @@ task 'uglify', 'Minify and obfuscate', ->
         message = "Uglified #{publicTargetJsMinFile}"
         util.log message
         displayNotification message
-    
+
 coffee = (options = "", file) ->
     util.log "Compiling #{file}"
     exec "coffee #{options} --compile #{file}", (err, stdout, stderr) -> 

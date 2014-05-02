@@ -8,6 +8,9 @@ Run package.json to install node modules dependancies:
 npm install
 ```
 
+Add node modules folder to your $PATH. If you are unsure where the folder is located simply run which cake.    
+On Windows machine the node modules are located at C:\Users\[name]\AppData\Roaming\npm    
+
 You can now try to run: 
 ```
 cake build:all
