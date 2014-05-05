@@ -54,18 +54,3 @@ It also minifies every JavaScript files (in case you need to include some JavaSc
 
 You can now launch */public/index.html* into a web page and see your current project working on this page. If you followed the previous step and wrote some test commands, you should now be able to pass your tests. Check this out by launching *./SpecRunner.html*.    
 If not, just follow the TDD procedure and just try again :p
-=======
-Add node modules folder to your $PATH. If you are unsure where the folder is located simply run:
-```
-which cake
-```
-
-On Windows machines, node modules are located at C:\Users\[name]\AppData\Roaming\npm    
-
-You can now run: 
-```
-cake build:all
-```
-
-You should get your CoffeeScript files translated into JavaScript and even minified using the node module uglify. You can of course swap this module for the closure compiler or the yui compressor.     
-Run the 'SpecRunner.html' into a web browser - every test should pass :)
