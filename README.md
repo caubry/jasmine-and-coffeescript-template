@@ -45,7 +45,6 @@ If you wish to listen out for changes in the file you are currently working on, 
 
 Once you are happy with your CoffeeScript, you can run the following command: 
 
-<<<<<<< HEAD
     cake build
 
 You should be able to notice changes in /app/src/js, as well as /public/js/app.min.js    
