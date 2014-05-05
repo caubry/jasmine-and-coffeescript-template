@@ -8,6 +8,10 @@ window.Calculator = Calculator = (function() {
     return a + b;
   };
 
+  Calculator.prototype.subtract = function(a, b) {
+    return a - b;
+  };
+
   return Calculator;
 
 })();
