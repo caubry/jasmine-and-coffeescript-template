@@ -93,18 +93,23 @@ task 'uglify', 'Minify and obfuscate', ->
     jsp = uglify.parser
     pro = uglify.uglify
 
-    fs.readFile prodTargetJsFile, 'utf8', (err, fileContents) ->
-        ast = jsp.parse fileContents  # parse code and get the initial AST
-        ast = pro.ast_mangle ast # get a new AST with mangled names
-        ast = pro.ast_squeeze ast # get an AST with compression optimizations
-        final_code = pro.gen_code ast # compressed code here
-    
-        fs.writeFile publicTargetJsMinFile, final_code
-        
-        message = "Uglified #{publicTargetJsMinFile}"
-        util.log message
-        displayNotification message
+    fs.writeFile "#{publicTargetJsMinFile}", ""
 
+    fs.readdir prodTargetJsDir, (err, files) ->
+        handleError(err) if err
+        for file in files then do (file) -> 
+            fs.readFile "#{prodTargetJsDir}/#{file}", 'utf8', (err, fileContents) ->
+                ast = jsp.parse fileContents  # parse code and get the initial AST
+                ast = pro.ast_mangle ast # get a new AST with mangled names
+                ast = pro.ast_squeeze ast # get an AST with compression optimizations
+                final_code = pro.gen_code ast # compressed code here
+
+                fs.appendFile publicTargetJsMinFile, "#{final_code};"
+
+                message = "Uglified #{publicTargetJsMinFile}"
+                util.log message
+                displayNotification message
+                
 coffee = (options = "", file) ->
     util.log "Compiling #{file}"
     exec "coffee #{options} --compile #{file}", (err, stdout, stderr) -> 
